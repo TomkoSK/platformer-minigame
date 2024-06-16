@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://08kwru1smnfl"]
+
+[ext_resource type="PackedScene" uid="uid://dw8cwwmko1sxh" path="res://Player.tscn" id="1_gk0q8"]
+[ext_resource type="Texture2D" uid="uid://xhlkweverhcc" path="res://tiles.png" id="2_g6usx"]
+[ext_resource type="PackedScene" uid="uid://84tjrdjkvdag" path="res://JumpRecharge.tscn" id="3_d8n3d"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31yv5"]
+texture = ExtResource("2_g6usx")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_gs8kv"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_31yv5")
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_gk0q8")]
+position = Vector2(214, 131)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_gs8kv")
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 0, 1, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 0, 1, 524299, 0, 1, 458764, 0, 1)
+
+[node name="JumpRecharge3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_d8n3d")]
+position = Vector2(561.971, 9.81055)
+player = NodePath("../Player")
+
+[node name="JumpRecharge2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_d8n3d")]
+position = Vector2(558.989, 314.803)
+player = NodePath("../Player")
+
+[node name="JumpRecharge" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_d8n3d")]
+position = Vector2(377.383, 192.217)
+player = NodePath("../Player")
