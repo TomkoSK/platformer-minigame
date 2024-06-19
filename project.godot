@@ -13,6 +13,7 @@ config_version=5
 config/name="platformer"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [input]
@@ -40,6 +41,7 @@ click={
 
 [physics]
 
+common/physics_ticks_per_second=120
 2d/default_gravity=2500.0
 
 [rendering]

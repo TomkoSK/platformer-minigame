@@ -20,8 +20,6 @@ func _ready():
 
 func _process(delta):
 	print(delta)
-	if(velocity.x != 0):
-		print(velocity.x)
 	var xDirection = Input.get_axis("left", "right")
 
 	velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
